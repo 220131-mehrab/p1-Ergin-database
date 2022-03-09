@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <title>Home Page</title>
     <link rel="stylesheet" href="main.css">
-</head>
-    <h1>Head Part. First time Running it after setting up the server</h1>
-<body>
-<h1>Body Part pretty much blank</h1>
-<div id = "artists"></div>
-<script src="main.js"></script>
-</body>
+</head>   
+    <body>
+        <h1>Welcome</h1>
+        <form action ="/artists" method="post">
+            id: <input type="number" name="artistId" id="artistId"/>
+            Name: <input type="text" name="name" id="name"/>
+            <button type="button" onclick="postArtist()">Add Artist</button>
+        </form>
+        <div id ="artists"></div>
+        <script src="main.js"></script>
+    </body>
 </html>

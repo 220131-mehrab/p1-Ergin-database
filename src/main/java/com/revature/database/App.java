@@ -50,7 +50,8 @@ class Artist {
 
 public class App {
     public static void main(String[] args) throws SQLException {
-        Connection connection = DriverManager.getConnection("jdbc:h2:mem:test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;INIT=runscript from 'classpath:schema.sql'", "sa","");
+        Connection connection = DriverManager
+        .getConnection("jdbc:h2:mem:test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;INIT=runscript from 'classpath:schema.sql'", "sa","");
 
         HttpServlet artistServlet = new HttpServlet() {
             @Override
@@ -80,7 +81,7 @@ public class App {
                 Artist newArtist = mapper.readValue(req.getInputStream(), Artist.class);
                 System.out.println(newArtist);
                 try {
-                    PreparedStatement stmt = connection.prepareStatement("insert into 'artist' values (?,?)");
+                    PreparedStatement stmt = connection.prepareStatement("insert into Artist values (?,?)");
                     stmt.setInt(1, newArtist.getArtistId());
                     stmt.setString(2, newArtist.getName());
                     stmt.executeUpdate();
