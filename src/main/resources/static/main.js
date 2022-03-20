@@ -34,4 +34,10 @@ function postArtist(){
     }).catch((error)=>{console.log(error);})
     fetch('/artists').then(resp => resp.json()).then(artists =>{
         document.querySelector('#artists').innerHTML = listArtists(artists)});
+
+    fetch("https://data.kcmo.org/resource/frqd-pm5w")
+    .then(response => response.json())
+    .then(data => {
+      data.forEach(item => console.log(item));   
+    });
 };

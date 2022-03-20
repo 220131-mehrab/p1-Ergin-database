@@ -1,3 +1,5 @@
+version: 3.4
+
 services:
   p1-db:
     image: postgres
@@ -6,7 +8,9 @@ services:
     volumes:
       - ./src/main/resources/schema.sql:/docker-entrypoint-initdb.d/schema.sql
     ports:
-      -5432:5432
+      - 5432:5432
+      p1mehrab:
+      image: p1mehrab
   app:
     depends_on:
       - p1-db
